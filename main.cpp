@@ -9,7 +9,7 @@ int main() {
     // Estado principal
     short int mainState = 0;
 
-    // Crear una instancia del menú
+    // Crear una instancia del menÃº
     Menu* menuPrincipal = new Menu(&window, mainState);
 
     // Bucle principal de la ventana
@@ -22,11 +22,11 @@ int main() {
             window.close();
             break;
 
-        case 0: // Mostrar el menú principal
+        case 0: // Mostrar el menÃº principal
             menuPrincipal->mainMenu();
             break;
 
-            // Puedes agregar más estados aquí según tus necesidades
+            
         }
 
         // Manejo de eventos
@@ -35,9 +35,9 @@ int main() {
                 window.close();
         }
 
-        // Limpiar la ventana y dibujar el contenido del menú
+        
         window.clear(sf::Color(24, 24, 24)); // Color de fondo
-        // Aquí puedes agregar la lógica para dibujar los botones si es necesario
+       
         window.display();
     }
 
