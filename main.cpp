@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "menu.h"
+#include "1.h"
 
 int main() {
     // Crear una ventana SFML
@@ -9,8 +10,11 @@ int main() {
     // Estado principal
     short int mainState = 0;
 
-    // Crear una instancia del menú
+    // Crear una instancia del menÃº
     Menu* menuPrincipal = new Menu(&window, mainState);
+
+    EnemigoTipoA enemigoA(100, 100); 
+    EnemigoTipoB enemigoB(200, 200); 
 
     // Bucle principal de la ventana
     while (window.isOpen()) {
@@ -22,11 +26,14 @@ int main() {
             window.close();
             break;
 
-        case 0: // Mostrar el menú principal
+        case 0: // Mostrar el menÃº principal
             menuPrincipal->mainMenu();
             break;
 
-            
+        case 1:
+            enemigoA.Actualizar(0.1f);
+            enemigoB.Actualizar(0.1f);
+            break;
         }
 
         // Manejo de eventos
@@ -35,13 +42,17 @@ int main() {
                 window.close();
         }
 
-        // Limpiar la ventana y dibujar el contenido del menú
+        // Limpiar la ventana y dibujar el contenido del menÃº
         window.clear(sf::Color(24, 24, 24)); // Color de fondo
-        
+
+        if (mainState == 1) {
+            enemigoA.dibujarEnemigo(&window);
+            enemigoB.dibujarEnemigo(&window);
+        }
         window.display();
     }
 
-    
+
     delete menuPrincipal;
 
     return 0;
